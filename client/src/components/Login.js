@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({ history }) => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const { register, handleSubmit, watch, errors } = useForm();
@@ -13,6 +13,7 @@ const Login = () => {
         data,
       );
       localStorage.setItem('token', response.data);
+      history.push('/bubbles');
     } catch (e) {
       console.log(e);
     }
