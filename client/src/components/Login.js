@@ -12,7 +12,8 @@ const Login = ({ history }) => {
         'http://localhost:5000/api/login',
         data,
       );
-      localStorage.setItem('token', response.data);
+      localStorage.setItem('token', response.data.payload);
+      console.log(localStorage);
       history.push('/bubbles');
     } catch (e) {
       console.log(e);
